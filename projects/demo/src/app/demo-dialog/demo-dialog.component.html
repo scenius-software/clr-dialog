@@ -1,0 +1,12 @@
+<clr-modal [clrModalOpen]="true"S>
+    <h3 class="modal-title">I am a dialog!</h3>
+    <div class="modal-body">
+        Lorem ipsum bla bla bla
+<br/>
+        <textarea [(ngModel)]="result"></textarea>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" clrDialogClose>Cancel</button>
+        <button type="button" class="btn btn-primary" [clrDialogClose]="result">Ok</button>
+    </div>
+</clr-modal>
