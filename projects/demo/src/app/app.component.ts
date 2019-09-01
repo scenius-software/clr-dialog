@@ -11,9 +11,7 @@ export class AppComponent {
   dialogResult: string;
   dialogContent = 'Lorem ipsum bla bla'
 
-  constructor(private _clrDialogService: ClrDialogService) {
-
-  }
+  constructor(private _clrDialogService: ClrDialogService) { }
 
   openDialog() {
     const dialogRef = this._clrDialogService.open(DemoDialogComponent, { data: { content: this.dialogContent } });
