@@ -1,27 +1,71 @@
 # ClrDialog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+A quick & dirty copy of Angular Material's Dialog service for use with VmWare Clarity
 
-## Development server
+## Usage
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Import package:
 
-## Code scaffolding
+``` npm i clr-dialog``` 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add to app.module.ts:
 
-## Build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+import { ClrDialogModule } from 'clr-dialog'
 
-## Running unit tests
+@NgModule({
+  declarations: [...],
+  imports: [
+    ...
+    ClrDialogModule,
+    ...
+  ],
+  providers: [...],
+  bootstrap: [...],
+  entryComponents: []  <-- Add your Dialogs/'Modals' here
+})
+export class AppModule { }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
+Create a new dialog (ng g c my-dialog)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+TS:
+```
+export class MyDialogComponent {
+  content: string; // Inject data from caller
 
-## Further help
+  constructor(@Inject(CLR_DIALOG_DATA) public data, public dialogRef: ClrDialogRef<DemoDialogComponent>) {
+    this.content = data.content;
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+}
+```
+
+HTML:
+```
+<clr-modal [clrModalOpen]="true" [clrModalSize]="'sm'/'lg'/'xl'" [clrModalClosable]="bool" [clrModalStaticBackdrop]="bool">
+    <h3 class="modal-title">I have a nice title</h3>
+    <div class="modal-body">
+        <p>But not much to say...</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" clrDialogClose>Cancel</button>
+        <button type="button" class="btn btn-primary" [clrDialogClose]="'thisIsTheResult'">Ok</button>
+    </div>
+</clr-modal>
+```
+
+Open the dialog in any other component
+```
+  constructor(private _clrDialogService: ClrDialogService) { }
+
+  openDialog() {
+    const dialogRef = this._clrDialogService.open(DemoDialogComponent, { data: { content: this.dialogContent } });
+
+    // Handle the dialog result
+    dialogRef.afterClosed().subscribe(result => {
+      this.dialogResult = result;
+    });
+```
