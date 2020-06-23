@@ -14,5 +14,4 @@ export class DemoDialogComponent {
   constructor(@Inject(CLR_DIALOG_DATA) public data, public dialogRef: ClrDialogRef<DemoDialogComponent>) {
     this.content = data.content;
   }
-
 }
