@@ -12,6 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
       - uses: einaregilsson/build-number@v2
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         with:
           token: ${{secrets.github_token}}
       - name: Setup node
@@ -26,8 +28,6 @@ jobs:
           npm install -g @angular/cli
       - name: Set Version
         run: sed -i "s/\[ci-version\]/${GITHUB_REF##*/}-$BUILD_NUMBER/g" ./version.ts
-        env:        
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       - name: Build Library
         run: ng build --project clr-dialog
       - name: Publish Library to NPM
