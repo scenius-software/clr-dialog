@@ -26,10 +26,11 @@ jobs:
           npm install -g @angular/cli
       - name: Set Version
         run: sed -i "s/\[ci-version\]/${GITHUB_REF##*/}-$BUILD_NUMBER/g" ./version.ts
+        env:        
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       - name: Build Library
         run: ng build --project clr-dialog
       - name: Publish Library to NPM
         run: npm publish ./dist/clr-dialog
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
