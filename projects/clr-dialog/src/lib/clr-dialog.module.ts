@@ -9,8 +9,6 @@ import { ClrDialogClose, ClrDialogTitle, ClrDialogContent, ClrDialogActions } fr
 import { ClrDialogService, CLR_DIALOG_SCROLL_STRATEGY_PROVIDER } from './clr-dialog.service';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
 
 /**
  * @license
@@ -25,9 +23,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule,
     OverlayModule,
-    PortalModule,
-    BrowserModule,
-    BrowserAnimationsModule
+    PortalModule
   ],
   exports: [
     ClrDialogContainer,
