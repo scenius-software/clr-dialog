@@ -25,9 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule,
     OverlayModule,
-    PortalModule,
-    BrowserModule,
-    BrowserAnimationsModule
+    PortalModule
   ],
   exports: [
     ClrDialogContainer,
