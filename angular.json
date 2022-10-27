@@ -10,19 +10,19 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/clr-dialog/tsconfig.lib.json",
             "project": "projects/clr-dialog/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/clr-dialog/src/test.ts",
-            "tsConfig": "projects/clr-dialog/tsconfig.spec.json",
-            "karmaConfig": "projects/clr-dialog/karma.conf.js"
-          }
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/clr-dialog/tsconfig.lib.json"
+            },
+            "development": {
+              "tsConfig": "projects/clr-dialog/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     },

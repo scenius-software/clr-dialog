@@ -11,15 +11,15 @@
       "es2018"
     ]
   },
-  "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "enableResourceInlining": true,
-    "enableIvy": false
-  },
+  // "angularCompilerOptions": {
+  //   "annotateForClosureCompiler": true,
+  //   "skipTemplateCodegen": true,
+  //   "strictMetadataEmit": true,
+  //   "fullTemplateTypeCheck": true,
+  //   "strictInjectionParameters": true,
+  //   "enableResourceInlining": true,
+  //   "enableIvy": true
+  // },
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
