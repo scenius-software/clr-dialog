@@ -20,29 +20,28 @@ import { PortalModule } from '@angular/cdk/portal';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    OverlayModule,
-    PortalModule
-  ],
-  exports: [
-    ClrDialogContainer,
-    ClrDialogClose,
-    ClrDialogTitle,
-    ClrDialogContent,
-    ClrDialogActions,
-  ],
-  declarations: [
-    ClrDialogContainer,
-    ClrDialogClose,
-    ClrDialogTitle,
-    ClrDialogActions,
-    ClrDialogContent,
-  ],
-  providers: [
-    ClrDialogService,
-    CLR_DIALOG_SCROLL_STRATEGY_PROVIDER,
-  ],
-  entryComponents: [ClrDialogContainer],
+    imports: [
+        CommonModule,
+        OverlayModule,
+        PortalModule
+    ],
+    exports: [
+        ClrDialogContainer,
+        ClrDialogClose,
+        ClrDialogTitle,
+        ClrDialogContent,
+        ClrDialogActions,
+    ],
+    declarations: [
+        ClrDialogContainer,
+        ClrDialogClose,
+        ClrDialogTitle,
+        ClrDialogActions,
+        ClrDialogContent,
+    ],
+    providers: [
+        ClrDialogService,
+        CLR_DIALOG_SCROLL_STRATEGY_PROVIDER,
+    ]
 })
 export class ClrDialogModule { }

@@ -9,19 +9,18 @@ import { DemoDialogComponent } from './demo-dialog/demo-dialog.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DemoDialogComponent
-  ],
-  imports: [
-    BrowserModule,
-    ClarityModule,
-    BrowserAnimationsModule,
-    ClrDialogModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [DemoDialogComponent]
+    declarations: [
+        AppComponent,
+        DemoDialogComponent
+    ],
+    imports: [
+        BrowserModule,
+        ClarityModule,
+        BrowserAnimationsModule,
+        ClrDialogModule,
+        FormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
